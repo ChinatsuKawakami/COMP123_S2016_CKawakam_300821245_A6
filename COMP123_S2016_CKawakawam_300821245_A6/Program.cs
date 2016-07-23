@@ -6,17 +6,22 @@ using System.Windows.Forms;
 
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
-    static class Program
+    public static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        public static SplashHomeScreen SplashHome;
+        public static Form1 FirstForm;
+        public static Form2 SecondForm;
+     
         [STAThread]
-        static void Main()
+       public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            SecondForm = new Form2();
+            FirstForm = new Form1();
+            SplashHome = new SplashHomeScreen();
+            Application.Run(SplashHome);
         }
     }
 }

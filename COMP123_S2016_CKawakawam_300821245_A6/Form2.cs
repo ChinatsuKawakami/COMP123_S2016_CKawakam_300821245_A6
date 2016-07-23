@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-/*
- * Author:Chinatsu Kawakami
- * CreateDate:July23th2016
- * Modified Date:July23th2016
- * Descripntion: This program is to show users IBM
- * Version: 0.0.2-created Form1 to calculate BMI, Form2 to display Result and, SplashHomeScreen to show picture
- */
+
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
-
-      
     }
 }
