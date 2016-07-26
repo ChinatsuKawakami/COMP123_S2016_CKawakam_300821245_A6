@@ -13,7 +13,7 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
  * CreateDate:July23th2016
  * Modified Date:July26th2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.3- Added pushing Decimal Button and clear button Event 
+ * Version: 0.0.4- Added try and catch method 
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -40,29 +40,38 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
             double incheValue;
             double poundValue;
-            if (inches.Checked&&pounds.Checked)
-            {
-               
-                    BMIResult = (Convert.ToDouble(WeighttextBox.Text) * 703) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
+            try {
+                if (ActiveError == false)
+                {
+                    if (inches.Checked && pounds.Checked)
+                    {
 
-                
-            }
-            else if (metres.Checked&&kilograms.Checked)
-            {
-                    BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
-                
-            }
-            else if(inches.Checked&&kilograms.Checked)
-            {
-                incheValue = Convert.ToDouble(HeighttextBox.Text)/100;//convert form inch to metric
-                BMIResult = Convert.ToDouble(WeighttextBox.Text) / (incheValue * incheValue);
-            }else if(metres.Checked&&pounds.Checked)// convert from pound to kg
-            {
-                // 1 pound = 0.453592kg
-                poundValue = Convert.ToDouble(WeighttextBox.Text) * 0.453592;
-                BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
-            }
 
+                        BMIResult = (Convert.ToDouble(WeighttextBox.Text) * 703) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
+
+
+                    }
+                    else if (metres.Checked && kilograms.Checked)
+                    {
+                        BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
+
+                    }
+                    else if (inches.Checked && kilograms.Checked)
+                    {
+                        incheValue = Convert.ToDouble(HeighttextBox.Text) / 100;//convert form inch to metric
+                        BMIResult = Convert.ToDouble(WeighttextBox.Text) / (incheValue * incheValue);
+                    }
+                    else if (metres.Checked && pounds.Checked)// convert from pound to kg
+                    {
+                        // 1 pound = 0.453592kg
+                        poundValue = Convert.ToDouble(WeighttextBox.Text) * 0.453592;
+                        BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
+                    }
+                }
+            }catch (DivideByZeroException error)
+            {
+                Console.WriteLine(error.Message);
+            }
 
             if (BMIResult < 18.5)
             {
