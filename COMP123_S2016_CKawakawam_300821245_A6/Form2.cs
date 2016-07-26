@@ -16,5 +16,12 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         {
             InitializeComponent();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

@@ -26,6 +26,5 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             FirstForm.Show();
             this.Hide();
         }
-
     }
 }

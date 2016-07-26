@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ResultLabel = new System.Windows.Forms.Label();
+            this.BMIlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -42,25 +43,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Your Result";
             // 
-            // label2
+            // ResultLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(24, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Here is your result";
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ResultLabel.Location = new System.Drawing.Point(24, 107);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(222, 27);
+            this.ResultLabel.TabIndex = 1;
+            this.ResultLabel.Text = "Here is your result";
+            // 
+            // BMIlabel
+            // 
+            this.BMIlabel.AutoSize = true;
+            this.BMIlabel.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BMIlabel.Location = new System.Drawing.Point(24, 158);
+            this.BMIlabel.Name = "BMIlabel";
+            this.BMIlabel.Size = new System.Drawing.Size(187, 27);
+            this.BMIlabel.TabIndex = 2;
+            this.BMIlabel.Text = "Your BMI Level";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BMIlabel);
+            this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,6 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label ResultLabel;
+        public System.Windows.Forms.Label BMIlabel;
     }
 }

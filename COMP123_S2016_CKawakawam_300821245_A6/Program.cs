@@ -17,7 +17,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            
             SecondForm = new Form2();
             FirstForm = new Form1();
             SplashHome = new SplashHomeScreen();
