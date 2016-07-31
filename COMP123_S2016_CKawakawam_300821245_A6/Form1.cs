@@ -14,22 +14,23 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
  * CreateDate:July23th2016
  * Modified Date:July30th2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.6- Added HeightDecimal and WeightDecimal 
+ * Version: 0.0.7- updated to check wether DecimalButton works or not
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
     public partial class Form1 : Form
     {
-
-        //     public string ActiveOperator { get; set; }
+        //public bool ActiveDecimal { get; set; }
+        //public string ActiveOperator { get; set; }
+      
         public bool ActiveError { get; set; }
-        public bool ActiveDecimal { get; set; }
-        bool heightCheker = false;
-        bool weightCheker = false;
+      
+        bool HeightCheker = false;
+        bool WeightCheker = false;
 
         //checker to check whether heightBox and WeightBox are error or not
 
-        public bool HeightDecimal { get; set; }
+       public bool HeightDecimal { get; set; }
        public bool WeightDecimal  { get; set; }
 
         public string currentResultH { get; set; }
@@ -115,7 +116,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         {
 
             Button bottonClick = (Button)sender;
-            if (heightCheker)
+            if (HeightCheker)
             {
 
                 if (String.Equals(HeighttextBox.Text, "0") || string.IsNullOrEmpty(HeighttextBox.Text))
@@ -128,7 +129,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                 HeighttextBox.Text = currentResultH;
 
             }
-            if (weightCheker)
+            if (WeightCheker)
             {
                 if (String.Equals(WeighttextBox.Text, "0") || string.IsNullOrEmpty(WeighttextBox.Text))
                 {
@@ -153,35 +154,56 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             this.ActiveError = false;
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void DecimalButton_Click(object sender, EventArgs e)
         {
             if (this.ActiveError == false)
             {
-                string currentString = String.Empty;
-                if (this.HeightDecimal == false && this.WeightDecimal == false)
+
+                //check if Height focus , HeightDecimal true 
+               // string currentString = String.Empty;
+                if (this.HeightDecimal == false && this.HeightCheker == true)
                 {
                     this.HeightDecimal = true;
-                    this.WeightDecimal = true;
-
-                    if (weightCheker == true && this.WeightDecimal == true)
+                    HeighttextBox.Text += ".";
+                }
+                  
+                else if (this.WeightDecimal == false && WeightCheker == true)
                     {
+                        this.WeightDecimal = true;
                         WeighttextBox.Text += ".";
+
 
                     }
               
-                    if (heightCheker == true && this.HeightDecimal == true)
+                  /*  if (HeightCheker == true && this.HeightDecimal == true)
                     {
                         HeighttextBox.Text += ".";
-
-
+                     if(WeightCheker == true && this.WeightDecimal == true)
+                     {
+                         WeighttextBox.Text += ".";
+                     }
+                       
                     }
-                }
-            }
-        }
+                    else if(WeightCheker == true && this.WeightDecimal == true)
+                    {
+                        WeighttextBox.Text += ".";
+                         if (HeightCheker == true && this.HeightDecimal == true)
+                         {
+                             HeighttextBox.Text += ".";
+                         }
+                   
+                    }
+                  
+                      */
+                   
+                }//close ActiveError
+           
+            }//close this method
+        
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            if (heightCheker == true)
+            if (HeightCheker == true)
             {
           if (HeighttextBox.Text.Length == 1)
             {
@@ -195,7 +217,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
           }
                  HeighttextBox.Text = HeighttextBox.Text.Remove(HeighttextBox.Text.Length - 1);
             }
-          else if (weightCheker == true){
+          else if (WeightCheker == true){
               if (WeighttextBox.Text.Length == 1)
               {
                   WeighttextBox.Text = "0";
@@ -210,7 +232,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
           }
 
 
-                 
+        
                  
 
               }
@@ -219,20 +241,20 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void HeighttextBox_Click(object sender, EventArgs e)
         {
-            heightCheker = true;
-            weightCheker = false;
+            HeightCheker = true;
+            WeightCheker = false;
         }
 
         private void WeighttextBox_Click(object sender, EventArgs e)
         {
-            weightCheker = true;
-            heightCheker = false;
+            WeightCheker = true;
+            HeightCheker = false;
         }
 
 
-
     }
-}
+ }
+
 
     
 

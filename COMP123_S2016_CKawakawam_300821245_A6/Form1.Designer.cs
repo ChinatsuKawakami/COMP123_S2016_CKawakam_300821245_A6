@@ -39,7 +39,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.DecimalButton = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.HeighttextBox = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button8, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button9, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.button10, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button12, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.DecimalButton, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.button11, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.BackButton, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 237);
@@ -188,15 +188,15 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // button12
+            // DecimalButton
             // 
-            this.button12.Location = new System.Drawing.Point(237, 343);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(111, 79);
-            this.button12.TabIndex = 11;
-            this.button12.Text = ".";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.DecimalButton.Location = new System.Drawing.Point(237, 343);
+            this.DecimalButton.Name = "DecimalButton";
+            this.DecimalButton.Size = new System.Drawing.Size(111, 79);
+            this.DecimalButton.TabIndex = 11;
+            this.DecimalButton.Text = ".";
+            this.DecimalButton.UseVisualStyleBackColor = true;
+            this.DecimalButton.Click += new System.EventHandler(this.DecimalButton_Click);
             // 
             // button11
             // 
@@ -373,7 +373,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button DecimalButton;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.RadioButton inches;
         private System.Windows.Forms.RadioButton metres;
