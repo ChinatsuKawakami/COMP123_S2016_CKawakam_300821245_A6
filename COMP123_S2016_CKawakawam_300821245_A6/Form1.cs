@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using COMP123_S2016_CKawakawam_300821245_A6.Properties;
+
 /*
  * Author:Chinatsu Kawakami
  * CreateDate:July23th2016
- * Modified Date:July26th2016
+ * Modified Date:July29th2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.4- Added try and catch method 
+ * Version: 0.0.5- Added HeightChekerand WeightChecker 
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -23,11 +24,13 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         //     public string ActiveOperator { get; set; }
         public bool ActiveError { get; set; }
         public bool ActiveDecimal { get; set; }
+        bool heightCheker = false;
+        bool weightCheker = false;
 
         public string currentResultH { get; set; }
         public string currentResultW { get; set; }
-        public double BMIResult{ get; set; }
-    
+        public double BMIResult { get; set; }
+
         public Form2 SecondForm = Program.SecondForm;
         public Form1()
         {
@@ -38,9 +41,11 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         private void button13_Click(object sender, EventArgs e)
         {
 
+
             double incheValue;
             double poundValue;
-            try {
+            try
+            {
                 if (ActiveError == false)
                 {
                     if (inches.Checked && pounds.Checked)
@@ -68,7 +73,8 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                         BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
                     }
                 }
-            }catch (DivideByZeroException error)
+            }
+            catch (DivideByZeroException error)
             {
                 Console.WriteLine(error.Message);
             }
@@ -93,35 +99,44 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             }
 
             SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);
-            SecondForm.Show();
-            
-        }
-        
 
-     
+            SecondForm.Show();
+
+        }
+
+
+
         private void Calculator_Click(object sender, EventArgs e)
         {
-            Button bottonClick = (Button)sender;
-            if(String.Equals(HeighttextBox.Text,"0"))
-            {
-                MessageBox.Show("Enter your heigth");
-                HeighttextBox.Clear();
-            }
-            if(String.Equals(WeighttextBox.Text,"0"))
-            {
-                MessageBox.Show("Enter your weight");
-                WeighttextBox.Clear();
-            }
-            string currentResultH = HeighttextBox.Text;
-            string currentResultW = WeighttextBox.Text;
-          
-             currentResultH += bottonClick.Text;
-            
-            currentResultW += bottonClick.Text;
 
-            HeighttextBox.Text = currentResultH;
-            WeighttextBox.Text = currentResultW;
-           
+            Button bottonClick = (Button)sender;
+            if (heightCheker)
+            {
+
+                if (String.Equals(HeighttextBox.Text, "0") || string.IsNullOrEmpty(HeighttextBox.Text))
+                {
+                    MessageBox.Show("Enter your heigth");
+                    HeighttextBox.Clear();
+                }
+                string currentResultH = HeighttextBox.Text;
+                currentResultH += bottonClick.Text;
+                HeighttextBox.Text = currentResultH;
+
+            }
+            if (weightCheker)
+            {
+                if (String.Equals(WeighttextBox.Text, "0") || string.IsNullOrEmpty(WeighttextBox.Text))
+                {
+                    MessageBox.Show("Enter your weight");
+                    WeighttextBox.Clear();
+                }
+                string currentResultW = WeighttextBox.Text;
+
+
+                currentResultW += bottonClick.Text;
+
+                WeighttextBox.Text = currentResultW;
+            }
         }
 
         private void Clear_Button_Click(object sender, EventArgs e)
@@ -134,19 +149,29 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void button12_Click(object sender, EventArgs e)
         {
-            if(this.ActiveError==false)
+            if (this.ActiveError == false)
             {
                 string currentString = String.Empty;
-                if(this.ActiveDecimal == false)
+                if (this.ActiveDecimal == false)
                 {
                     this.ActiveDecimal = true;
-                    currentString = WeighttextBox.Text;
-                    currentString = HeighttextBox.Text;
-                    currentString += ".";
-                    WeighttextBox.Clear();
-                    HeighttextBox.Clear();
-                    WeighttextBox.Text = currentString;
-                    HeighttextBox.Text = currentString;
+                    if (weightCheker == true)
+                    {
+                        WeighttextBox.Text += ".";
+
+                    }
+              
+                    if (heightCheker == true)
+                    {
+                        HeighttextBox.Text += ".";
+
+
+                    }
+
+
+
+
+
 
 
                 }
@@ -155,30 +180,58 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            if(HeighttextBox.Text.Length == 1 && WeighttextBox.Text.Length==1)
+            if (heightCheker == true)
+            {
+          if (HeighttextBox.Text.Length == 1)
             {
                 HeighttextBox.Text = "0";
-                WeighttextBox.Text = "0";
-            }
 
-            else if(HeighttextBox.Text.Length >1 &&WeighttextBox.Text.Length>1)
+            }
+          else if (HeighttextBox.Text.Length > 1)
+              if (HeighttextBox.Text[HeighttextBox.Text.Length - 1] == '.')
+          {
+              this.ActiveDecimal = false;
+          }
+                 HeighttextBox.Text = HeighttextBox.Text.Remove(HeighttextBox.Text.Length - 1);
+            }
+          else if (weightCheker == true){
+              if (WeighttextBox.Text.Length == 1)
+              {
+                  WeighttextBox.Text = "0";
+              }
+           else if(WeighttextBox.Text.Length > 1)
+            if(WeighttextBox.Text[WeighttextBox.Text.Length - 1] == '.')
             {
-                if(HeighttextBox.Text[HeighttextBox.Text.Length-1]=='.' && WeighttextBox.Text[WeighttextBox.Text.Length-1]=='.')
-                {
-                  this.ActiveDecimal = false;
-                }
-
-                HeighttextBox.Text = HeighttextBox.Text.Remove(HeighttextBox.Text.Length-1);
-                WeighttextBox.Text = WeighttextBox.Text.Remove(WeighttextBox.Text.Length-1);
+                 this.ActiveDecimal = false;
 
             }
-            
+               WeighttextBox.Text = WeighttextBox.Text.Remove(WeighttextBox.Text.Length - 1);
+          }
+
+
+                 
+                 
+
+              }
+
+     
+
+        private void HeighttextBox_Click(object sender, EventArgs e)
+        {
+            heightCheker = true;
+            weightCheker = false;
         }
 
-      
-       
+        private void WeighttextBox_Click(object sender, EventArgs e)
+        {
+            weightCheker = true;
+            heightCheker = false;
+        }
 
 
-      
+
     }
 }
+
+    
+

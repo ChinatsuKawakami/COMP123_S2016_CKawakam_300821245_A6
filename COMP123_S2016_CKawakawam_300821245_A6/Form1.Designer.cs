@@ -41,6 +41,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.HeighttextBox = new System.Windows.Forms.TextBox();
             this.WeighttextBox = new System.Windows.Forms.TextBox();
             this.HeightLable = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.kilograms = new System.Windows.Forms.RadioButton();
             this.Myheight = new System.Windows.Forms.GroupBox();
             this.MyWeight = new System.Windows.Forms.GroupBox();
-            this.BackButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.Myheight.SuspendLayout();
             this.MyWeight.SuspendLayout();
@@ -208,12 +208,23 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.Calculator_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(120, 3);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(111, 79);
+            this.BackButton.TabIndex = 12;
+            this.BackButton.Text = "<-";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // HeighttextBox
             // 
             this.HeighttextBox.Location = new System.Drawing.Point(17, 60);
             this.HeighttextBox.Name = "HeighttextBox";
             this.HeighttextBox.Size = new System.Drawing.Size(277, 34);
             this.HeighttextBox.TabIndex = 1;
+            this.HeighttextBox.Click += new System.EventHandler(this.HeighttextBox_Click);
             // 
             // WeighttextBox
             // 
@@ -221,6 +232,7 @@
             this.WeighttextBox.Name = "WeighttextBox";
             this.WeighttextBox.Size = new System.Drawing.Size(277, 34);
             this.WeighttextBox.TabIndex = 2;
+            this.WeighttextBox.Click += new System.EventHandler(this.WeighttextBox_Click);
             // 
             // HeightLable
             // 
@@ -314,21 +326,11 @@
             this.MyWeight.TabIndex = 12;
             this.MyWeight.TabStop = false;
             // 
-            // BackButton
-            // 
-            this.BackButton.Location = new System.Drawing.Point(120, 3);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(111, 79);
-            this.BackButton.TabIndex = 12;
-            this.BackButton.Text = "<-";
-            this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 750);
+            this.ClientSize = new System.Drawing.Size(709, 742);
             this.Controls.Add(this.MyWeight);
             this.Controls.Add(this.Myheight);
             this.Controls.Add(this.button13);
