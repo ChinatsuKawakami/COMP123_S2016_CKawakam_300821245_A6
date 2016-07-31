@@ -12,9 +12,9 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
 /*
  * Author:Chinatsu Kawakami
  * CreateDate:July23th2016
- * Modified Date:July29th2016
+ * Modified Date:July30th2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.5- Added HeightChekerand WeightChecker 
+ * Version: 0.0.6- Added HeightDecimal and WeightDecimal 
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -26,6 +26,11 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         public bool ActiveDecimal { get; set; }
         bool heightCheker = false;
         bool weightCheker = false;
+
+        //checker to check whether heightBox and WeightBox are error or not
+
+        public bool HeightDecimal { get; set; }
+       public bool WeightDecimal  { get; set; }
 
         public string currentResultH { get; set; }
         public string currentResultW { get; set; }
@@ -143,7 +148,8 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         {
             HeighttextBox.Text = "0";
             WeighttextBox.Text = "0";
-            this.ActiveDecimal = false;
+            this.HeightDecimal = false;
+            this.WeightDecimal = false;
             this.ActiveError = false;
         }
 
@@ -152,28 +158,23 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             if (this.ActiveError == false)
             {
                 string currentString = String.Empty;
-                if (this.ActiveDecimal == false)
+                if (this.HeightDecimal == false && this.WeightDecimal == false)
                 {
-                    this.ActiveDecimal = true;
-                    if (weightCheker == true)
+                    this.HeightDecimal = true;
+                    this.WeightDecimal = true;
+
+                    if (weightCheker == true && this.WeightDecimal == true)
                     {
                         WeighttextBox.Text += ".";
 
                     }
               
-                    if (heightCheker == true)
+                    if (heightCheker == true && this.HeightDecimal == true)
                     {
                         HeighttextBox.Text += ".";
 
 
                     }
-
-
-
-
-
-
-
                 }
             }
         }
@@ -190,7 +191,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
           else if (HeighttextBox.Text.Length > 1)
               if (HeighttextBox.Text[HeighttextBox.Text.Length - 1] == '.')
           {
-              this.ActiveDecimal = false;
+              this.HeightDecimal = false;
           }
                  HeighttextBox.Text = HeighttextBox.Text.Remove(HeighttextBox.Text.Length - 1);
             }
@@ -202,7 +203,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
            else if(WeighttextBox.Text.Length > 1)
             if(WeighttextBox.Text[WeighttextBox.Text.Length - 1] == '.')
             {
-                 this.ActiveDecimal = false;
+                 this.WeightDecimal = false;
 
             }
                WeighttextBox.Text = WeighttextBox.Text.Remove(WeighttextBox.Text.Length - 1);
