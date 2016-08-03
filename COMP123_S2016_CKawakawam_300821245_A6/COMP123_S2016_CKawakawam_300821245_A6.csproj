@@ -44,17 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="BMICalculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BMICalculator.Designer.cs">
       <DependentUpon>BMICalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultOfBMICalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultOfBMICalculator.Designer.cs">
+      <DependentUpon>ResultOfBMICalculator.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,11 +64,11 @@
     <Compile Include="SplashHomeScreen.Designer.cs">
       <DependentUpon>SplashHomeScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BMICalculator.resx">
       <DependentUpon>BMICalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultOfBMICalculator.resx">
+      <DependentUpon>ResultOfBMICalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

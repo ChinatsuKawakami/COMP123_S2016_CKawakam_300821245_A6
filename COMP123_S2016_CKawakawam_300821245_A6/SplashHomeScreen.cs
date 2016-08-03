@@ -13,7 +13,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
     public partial class SplashHomeScreen : Form
     {
         //Alias 
-        public Form1 FirstForm = Program.FirstForm;
+        public BMICalculator FirstForm = Program.FirstForm;
 
         public SplashHomeScreen()
         {
