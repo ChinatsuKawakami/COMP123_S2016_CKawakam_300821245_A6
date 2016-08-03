@@ -14,7 +14,7 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
  * CreateDate:July23th2016
  * Modified Date:August 23rd 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.10- Added if statement to check if user check metric or imperial to input its Height and Weight
+ * Version: 0.0.11- Change the style for Radio Button to check Metric or Impreal
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -50,47 +50,30 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            // this store which is double for users tall in inche
-            double incheValue;
-            // this store which is double for user weight in pound
-            double poundValue;
+            ResultOfBMICalculator SecondForm = new ResultOfBMICalculator();
+            HeightLable.Visible = false;
+            WeightLabel2.Visible = false;
             try
             {
                 if (ActiveError == false)
                 {
-                    if (inches.Checked && pounds.Checked)
+                    if (Imperial.Checked)
                     {
-
-
+                        HeightLable.Visible = true;
+                        WeightLabel2.Visible = true;
                         BMIResult = (Convert.ToDouble(WeighttextBox.Text) * 703) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
 
 
                     }
-                    else if (metres.Checked && kilograms.Checked)
+                    else if (Metric.Checked)
                     {
+                        HeightLable.Visible = true;
+                        WeightLabel2.Visible = true;
                         BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
-
+                      
                     }
-                    else if (inches.Checked && kilograms.Checked)
-                    {
-                        incheValue = Convert.ToDouble(HeighttextBox.Text) / 100;//convert form inch to metric
-                        BMIResult = Convert.ToDouble(WeighttextBox.Text) / (incheValue * incheValue);
-                    }
-                    else if (metres.Checked && pounds.Checked)// convert from pound to kg
-                    {
-                        // 1 pound = 0.453592kg
-                        poundValue = Convert.ToDouble(WeighttextBox.Text) * 0.453592;
-                        BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
-                    }
-
-                    if(!metres.Checked && !inches.Checked)
-                    {
-                        MessageBox.Show("Please check the way to input your Height in Inches or Metres");
-                    }
-                    if(!kilograms.Checked && !pounds.Checked)
-                    {
-                        MessageBox.Show("Please check the way to input your Weight in kiligrams or Pounds");
-                    }
+                   
+                 
                 }//close ActiveError
             }
             catch (DivideByZeroException error)
@@ -132,7 +115,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void Calculator_Click(object sender, EventArgs e)
         {
-
+       
             Button bottonClick = (Button)sender;
             if (HeightCheker)
             {
@@ -260,6 +243,24 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             this.WeightDecimal = false;
             this.ActiveError = false;
 
+        }
+
+        private void HeighttextBox_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Metric_CheckedChanged(object sender, EventArgs e)
+        {
+
+            this.HeightlLabel.Text = "M";
+            this.WeightLabel2.Text = "Kg";
+        }
+
+        private void Imperial_CheckedChanged(object sender, EventArgs e)
+        {
+            this.HeightlLabel.Text = "inches";
+            this.WeightLabel2.Text = "pounds";
         }
 
 
