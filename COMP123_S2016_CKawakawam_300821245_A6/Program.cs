@@ -10,7 +10,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
     {
         public static SplashHomeScreen SplashHome;
         public static Form1 FirstForm;
-        public static Form2 SecondForm;
+        public static BMICalculator SecondForm;
      
         [STAThread]
        public static void Main()
@@ -18,7 +18,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            SecondForm = new Form2();
+            SecondForm = new BMICalculator();
             FirstForm = new Form1();
             SplashHome = new SplashHomeScreen();
             Application.Run(SplashHome);

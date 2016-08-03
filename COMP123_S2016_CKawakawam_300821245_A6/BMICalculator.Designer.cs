@@ -1,6 +1,6 @@
 ﻿namespace COMP123_S2016_CKawakawam_300821245_A6
 {
-    partial class Form2
+    partial class BMICalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             // 
             this.ResultLabel.AutoSize = true;
             this.ResultLabel.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ResultLabel.Location = new System.Drawing.Point(24, 107);
+            this.ResultLabel.Location = new System.Drawing.Point(24, 102);
             this.ResultLabel.Name = "ResultLabel";
             this.ResultLabel.Size = new System.Drawing.Size(222, 27);
             this.ResultLabel.TabIndex = 1;
@@ -62,8 +62,9 @@
             this.BMIlabel.Size = new System.Drawing.Size(187, 27);
             this.BMIlabel.TabIndex = 2;
             this.BMIlabel.Text = "Your BMI Level";
+          
             // 
-            // Form2
+            // BMICalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,9 +72,9 @@
             this.Controls.Add(this.BMIlabel);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "BMICalculator";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+          
             this.ResumeLayout(false);
             this.PerformLayout();
 

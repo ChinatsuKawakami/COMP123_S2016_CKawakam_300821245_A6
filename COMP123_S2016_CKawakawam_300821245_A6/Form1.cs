@@ -12,19 +12,20 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
 /*
  * Author:Chinatsu Kawakami
  * CreateDate:July23th2016
- * Modified Date:July30th2016
+ * Modified Date:August 23rd 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.7- updated to check wether DecimalButton works or not
+ * Version: 0.0.8- Added comment
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
     public partial class Form1 : Form
     {
-        //public bool ActiveDecimal { get; set; }
-        //public string ActiveOperator { get; set; }
+
+        // PUBLIC PROPERTIES*******************************************************
       
         public bool ActiveError { get; set; }
-      
+       
+        // They have a role to check which box is forcused by user
         bool HeightCheker = false;
         bool WeightCheker = false;
 
@@ -33,22 +34,25 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
        public bool HeightDecimal { get; set; }
        public bool WeightDecimal  { get; set; }
 
+        // this is properties to store what numbers user input into TextBox  
         public string currentResultH { get; set; }
         public string currentResultW { get; set; }
-        public double BMIResult { get; set; }
 
-        public Form2 SecondForm = Program.SecondForm;
+        // This store which final result for BMI
+        public double BMIResult { get; set; }
+        // This is instance of Form2 
+        public BMICalculator SecondForm = Program.SecondForm;
         public Form1()
         {
             InitializeComponent();
         }
 
 
-        private void button13_Click(object sender, EventArgs e)
+        private void SubmitButton_Click(object sender, EventArgs e)
         {
-
-
+            // this store which is double for users tall in inche
             double incheValue;
+            // this store which is double for user weight in pound
             double poundValue;
             try
             {
@@ -78,7 +82,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                         poundValue = Convert.ToDouble(WeighttextBox.Text) * 0.453592;
                         BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
                     }
-                }
+                }//close ActiveError
             }
             catch (DivideByZeroException error)
             {
@@ -88,20 +92,24 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             if (BMIResult < 18.5)
             {
                 SecondForm.BMIlabel.Text = "Under Weight";
+                SecondForm.BackColor = System.Drawing.Color.Aqua;
 
             }
             else if (BMIResult >= 18.5 && BMIResult <= 24.9)
             {
                 SecondForm.BMIlabel.Text = "Normal";
+                SecondForm.BackColor = System.Drawing.Color.Blue;
             }
             else if (BMIResult >= 25.0 && BMIResult <= 29.9)
             {
                 SecondForm.BMIlabel.Text = "Over Weight";
+                SecondForm.BackColor = System.Drawing.Color.Yellow;
             }
             else if (BMIResult >= 30)
             {
 
                 SecondForm.BMIlabel.Text = "Obese";
+                SecondForm.BackColor = System.Drawing.Color.Red;
             }
 
             SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);
@@ -157,46 +165,30 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         private void DecimalButton_Click(object sender, EventArgs e)
         {
             if (this.ActiveError == false)
-            {
+           {
 
                 //check if Height focus , HeightDecimal true 
                // string currentString = String.Empty;
                 if (this.HeightDecimal == false && this.HeightCheker == true)
                 {
                     this.HeightDecimal = true;
-                    HeighttextBox.Text += ".";
-                }
-                  
-                else if (this.WeightDecimal == false && WeightCheker == true)
-                    {
-                        this.WeightDecimal = true;
-                        WeighttextBox.Text += ".";
-
-
-                    }
-              
-                  /*  if (HeightCheker == true && this.HeightDecimal == true)
+                    if (HeightCheker == true && this.HeightDecimal == true)
                     {
                         HeighttextBox.Text += ".";
-                     if(WeightCheker == true && this.WeightDecimal == true)
-                     {
-                         WeighttextBox.Text += ".";
-                     }
-                       
-                    }
-                    else if(WeightCheker == true && this.WeightDecimal == true)
-                    {
-                        WeighttextBox.Text += ".";
-                         if (HeightCheker == true && this.HeightDecimal == true)
-                         {
-                             HeighttextBox.Text += ".";
-                         }
-                   
-                    }
+                    } 
+                 }
                   
-                      */
+                   if (this.WeightDecimal == false && WeightCheker == true)
+                    {
+                        this.WeightDecimal = true;
+                        if (WeightCheker == true && this.WeightDecimal == true)
+                        {
+                            WeighttextBox.Text += ".";
+                        }
+                     }
+              
                    
-                }//close ActiveError
+                }//close check ActiveError
            
             }//close this method
         
@@ -208,7 +200,6 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
           if (HeighttextBox.Text.Length == 1)
             {
                 HeighttextBox.Text = "0";
-
             }
           else if (HeighttextBox.Text.Length > 1)
               if (HeighttextBox.Text[HeighttextBox.Text.Length - 1] == '.')
@@ -216,7 +207,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
               this.HeightDecimal = false;
           }
                  HeighttextBox.Text = HeighttextBox.Text.Remove(HeighttextBox.Text.Length - 1);
-            }
+            }//close HeightCheker 
           else if (WeightCheker == true){
               if (WeighttextBox.Text.Length == 1)
               {
@@ -229,13 +220,8 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
             }
                WeighttextBox.Text = WeighttextBox.Text.Remove(WeighttextBox.Text.Length - 1);
-          }
-
-
-        
-                 
-
-              }
+          }//close WeightCheker
+         }//close BackButton Click method
 
      
 
@@ -249,6 +235,11 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         {
             WeightCheker = true;
             HeightCheker = false;
+        }
+
+        private void WeighttextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

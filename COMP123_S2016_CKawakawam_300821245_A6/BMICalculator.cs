@@ -8,20 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
-    public partial class Form2 : Form
+    public partial class BMICalculator : Form
     {
-        public Form2()
+        public BMICalculator()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
+    
 
-        }
-
-       
+        
+            
+         
+               
     }
 }
