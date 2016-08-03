@@ -14,7 +14,7 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
  * CreateDate:July23th2016
  * Modified Date:August 23rd 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.9- Added ResetButton and Change the Name of ControlType
+ * Version: 0.0.10- Added if statement to check if user check metric or imperial to input its Height and Weight
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -81,6 +81,15 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                         // 1 pound = 0.453592kg
                         poundValue = Convert.ToDouble(WeighttextBox.Text) * 0.453592;
                         BMIResult = poundValue / ((Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text)));
+                    }
+
+                    if(!metres.Checked && !inches.Checked)
+                    {
+                        MessageBox.Show("Please check the way to input your Height in Inches or Metres");
+                    }
+                    if(!kilograms.Checked && !pounds.Checked)
+                    {
+                        MessageBox.Show("Please check the way to input your Weight in kiligrams or Pounds");
                     }
                 }//close ActiveError
             }
@@ -241,9 +250,15 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
       
         private void ResetButton_Click(object sender, EventArgs e)
         {
+            // make instance of SplashHomeScreen which shows up if user enters the ResetButton
             SplashHomeScreen Splash = new SplashHomeScreen();
             this.Hide();
             Splash.Show();
+            HeighttextBox.Text = "0";
+            WeighttextBox.Text = "0";
+            this.HeightDecimal = false;
+            this.WeightDecimal = false;
+            this.ActiveError = false;
 
         }
 
