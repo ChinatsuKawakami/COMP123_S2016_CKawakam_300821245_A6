@@ -226,7 +226,7 @@
             this.HeighttextBox.Size = new System.Drawing.Size(120, 34);
             this.HeighttextBox.TabIndex = 1;
             this.HeighttextBox.Click += new System.EventHandler(this.HeighttextBox_Click);
-            this.HeighttextBox.TextChanged += new System.EventHandler(this.HeighttextBox_TextChanged);
+           
             // 
             // WeighttextBox
             // 
@@ -312,11 +312,12 @@
             // HeightlLabel
             // 
             this.HeightlLabel.AutoSize = true;
-            this.HeightlLabel.Location = new System.Drawing.Point(150, 99);
+            this.HeightlLabel.Location = new System.Drawing.Point(155, 99);
             this.HeightlLabel.Name = "HeightlLabel";
             this.HeightlLabel.Size = new System.Drawing.Size(78, 27);
             this.HeightlLabel.TabIndex = 14;
             this.HeightlLabel.Text = "label1";
+            this.HeightlLabel.Visible = false;
             // 
             // WeightLabel2
             // 
@@ -326,6 +327,7 @@
             this.WeightLabel2.Size = new System.Drawing.Size(78, 27);
             this.WeightLabel2.TabIndex = 15;
             this.WeightLabel2.Text = "label2";
+            this.WeightLabel2.Visible = false;
             // 
             // BMICalculator
             // 

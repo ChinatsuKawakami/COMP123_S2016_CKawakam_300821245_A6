@@ -13,12 +13,15 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 {
     public partial class ResultOfBMICalculator : Form
     {
+
         public ResultOfBMICalculator()
         {
             InitializeComponent();
         }
 
-    
+
+        public ProgressBar Bar = new ProgressBar();
+               
 
         
             

@@ -14,7 +14,7 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
  * CreateDate:July23th2016
  * Modified Date:August 23rd 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.11- Change the style for Radio Button to check Metric or Impreal
+ * Version: 0.0.12- Added ProgressBar which is changed length of its Bar depend on Result
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -42,6 +42,9 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         public double BMIResult { get; set; }
         // This is instance of Form2 
         public ResultOfBMICalculator SecondForm = Program.SecondForm;
+
+        
+       
         public BMICalculator()
         {
             InitializeComponent();
@@ -50,7 +53,13 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
+           
             ResultOfBMICalculator SecondForm = new ResultOfBMICalculator();
+            ProgressBar Progress = SecondForm.Bar;
+
+           
+           
+    
             HeightLable.Visible = false;
             WeightLabel2.Visible = false;
             try
@@ -59,20 +68,18 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                 {
                     if (Imperial.Checked)
                     {
-                        HeightLable.Visible = true;
-                        WeightLabel2.Visible = true;
+                        
                         BMIResult = (Convert.ToDouble(WeighttextBox.Text) * 703) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
 
 
                     }
                     else if (Metric.Checked)
                     {
-                        HeightLable.Visible = true;
-                        WeightLabel2.Visible = true;
+                       
                         BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
                       
                     }
-                   
+                  
                  
                 }//close ActiveError
             }
@@ -84,30 +91,61 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             if (BMIResult < 18.5)
             {
                 SecondForm.BMIlabel.Text = "Under Weight";
-                SecondForm.BackColor = System.Drawing.Color.Aqua;
+                SecondForm.ForeColor = System.Drawing.Color.Aqua;
                 
 
             }
             else if (BMIResult >= 18.5 && BMIResult <= 24.9)
             {
                 SecondForm.BMIlabel.Text = "Normal";
-                SecondForm.BackColor = System.Drawing.Color.Blue;
+                SecondForm.ForeColor = System.Drawing.Color.Blue;
+               
             }
             else if (BMIResult >= 25.0 && BMIResult <= 29.9)
             {
                 SecondForm.BMIlabel.Text = "Over Weight";
-                SecondForm.BackColor = System.Drawing.Color.Yellow;
+                SecondForm.ForeColor = System.Drawing.Color.Yellow;
+              
             }
             else if (BMIResult >= 30)
             {
 
                 SecondForm.BMIlabel.Text = "Obese";
-                SecondForm.BackColor = System.Drawing.Color.Red;
+                SecondForm.ForeColor = System.Drawing.Color.Red;
+                
             }
 
+            int ResultForBar = (int)Program.FirstForm.BMIResult;
+            Progress.Maximum = 100;
+            Progress.Minimum = 0;
+            switch (SecondForm.BMIlabel.Text)
+            {
+                case "Under Weight":
+                    Progress.Value = 25;
+                    Progress.BackColor = Color.Aqua;
+                    break;
+                case "Normal":
+                    Progress.Value = 50;
+                    Progress.BackColor = Color.Blue;
+                    break;
+                case "Over Weight":
+                    Progress.Value = 75;
+                    Progress.BackColor = Color.Yellow;
+                    break;
+                case "Obese":
+                    Progress.Value = 100;
+                    Progress.BackColor = Color.Red;
+                    break;
+
+            }
             SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);
 
+           
+           
+                
+            
             SecondForm.Show();
+           
 
         }
 
@@ -245,22 +283,22 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         }
 
-        private void HeighttextBox_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
+        
         private void Metric_CheckedChanged(object sender, EventArgs e)
         {
 
             this.HeightlLabel.Text = "M";
             this.WeightLabel2.Text = "Kg";
+            HeightlLabel.Visible = true;
+            WeightLabel2.Visible=true;
         }
 
         private void Imperial_CheckedChanged(object sender, EventArgs e)
         {
             this.HeightlLabel.Text = "inches";
             this.WeightLabel2.Text = "pounds";
+            HeightlLabel.Visible = true;
+            WeightLabel2.Visible=true;
         }
 
 
