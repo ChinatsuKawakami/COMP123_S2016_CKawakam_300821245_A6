@@ -12,9 +12,9 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
 /*
  * Author:Chinatsu Kawakami
  * CreateDate:July23th2016
- * Modified Date:August 23rd 2016
+ * Modified Date:August 4th 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.12- Added ProgressBar which is changed length of its Bar depend on Result
+ * Version: 0.0.13- Zero is set in TextBox before User inputs Height and Weight
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -23,6 +23,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         // PUBLIC PROPERTIES*******************************************************
       
+        // This check if Weight and Height user input will cause error or not
         public bool ActiveError { get; set; }
        
         // They have a role to check which box is forcused by user
@@ -40,31 +41,43 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         // This store which final result for BMI
         public double BMIResult { get; set; }
+
         // This is instance of Form2 
         public ResultOfBMICalculator SecondForm = Program.SecondForm;
-
+      
         
-       
+       //PUBLIC METHOD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public BMICalculator()
         {
             InitializeComponent();
+            //First, Numbers in TextBox is Zero
+            HeighttextBox.Text = "0";
+            WeighttextBox.Text = "0";
         }
 
-
+        // PRIVATE METHOD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        /*
+         *<summary>
+           If user Clicks Calculate BMI, This Event happens 
+         * <summary>
+         * @method SubmitButton_Click
+         * @property {void}
+         */
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-           
+           //Create instance of ResultOfBMICalculator 
             ResultOfBMICalculator SecondForm = new ResultOfBMICalculator();
+
+            //Create ProgressBar instance and assign to ProgressBar Which is in ResultOfBMICalculator Form
             ProgressBar Progress = SecondForm.Bar;
 
-           
-           
-    
+            //Height and Weight label is false till user choose Metric or Imperial
             HeightLable.Visible = false;
             WeightLabel2.Visible = false;
+            // set try and catch to check if DivideByZeroException happends or not
             try
             {
-                if (ActiveError == false)
+                if (ActiveError == false)// if DivideByZeroException does not happen, this Event continues
                 {
                     if (Imperial.Checked)
                     {
@@ -79,8 +92,8 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                         BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
                       
                     }
-                  
                  
+                  
                 }//close ActiveError
             }
             catch (DivideByZeroException error)
@@ -138,31 +151,35 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                     break;
 
             }
-            SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);
-
-           
-           
-                
-            
-            SecondForm.Show();
-           
+            //ResultOfBMICalculator's label shows BMI Result
+            SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);  
+            //ResultOfBMICalculator shows
+            SecondForm.Show();    
 
         }
 
-
+        /*
+        *<summary>
+          If Numbers which are in TableLayoutTable are clicked, this Event happens
+        * <summary>
+        * @method Calculator_Click
+        * @property {void}
+        */
 
         private void Calculator_Click(object sender, EventArgs e)
         {
-       
+            
+            
             Button bottonClick = (Button)sender;
             if (HeightCheker)
             {
 
-                if (String.Equals(HeighttextBox.Text, "0") || string.IsNullOrEmpty(HeighttextBox.Text))
+              if (String.Equals(HeighttextBox.Text, "0") || string.IsNullOrEmpty(HeighttextBox.Text))
                 {
                     MessageBox.Show("Enter your heigth");
                     HeighttextBox.Clear();
                 }
+             
                 string currentResultH = HeighttextBox.Text;
                 currentResultH += bottonClick.Text;
                 HeighttextBox.Text = currentResultH;
@@ -175,6 +192,7 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                     MessageBox.Show("Enter your weight");
                     WeighttextBox.Clear();
                 }
+               
                 string currentResultW = WeighttextBox.Text;
 
 
@@ -222,7 +240,14 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
                 }//close check ActiveError
            
             }//close this method
-        
+
+        /*
+       *<summary>
+         If -> button which is in TableLayoutTable is clicked, this Event happens to delete numbers in TextBox each one
+       * <summary>
+       * @method BackButton_Click
+       * @property {void}
+       */
 
         private void BackButton_Click(object sender, EventArgs e)
         {
@@ -254,21 +279,39 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
           }//close WeightCheker
          }//close BackButton Click method
 
-     
 
+        /*
+       *<summary>
+          If user click HeighttextBox to input numbers, HeightCheker is true
+       * <summary>
+       * @method HeighttextBox_Click
+       * @property {void}
+       */
         private void HeighttextBox_Click(object sender, EventArgs e)
         {
             HeightCheker = true;
             WeightCheker = false;
         }
-
+        /*
+         *<summary>
+            If user click WeighttextBox to input numbers, WeightCheker is true
+         * <summary>
+         * @method weighttextBox_Click
+         * @property {void}
+         */
         private void WeighttextBox_Click(object sender, EventArgs e)
         {
             WeightCheker = true;
             HeightCheker = false;
         }
 
-      
+        /*
+          *<summary>
+             If user click ResetButton, SplashFormScreen shows up and Numbers in TextBox become Zero 
+          * <summary>
+          * @method ResetButton_Click
+          * @property {void}
+          */
         private void ResetButton_Click(object sender, EventArgs e)
         {
             // make instance of SplashHomeScreen which shows up if user enters the ResetButton
@@ -283,7 +326,13 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
         }
 
-        
+        /*
+          *<summary>
+             If user chooses Metric in RadioButton, labels will be "M" and "kg" and the way to calculate BMI is changed apropriately
+          * <summary>
+          * @method Metric_CheckedChanged
+          * @property {void}
+          */
         private void Metric_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -292,7 +341,13 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             HeightlLabel.Visible = true;
             WeightLabel2.Visible=true;
         }
-
+        /*
+       *<summary>
+          If user chooses Imperial in RadioButton, labels will be "inches" and "pounds" and the way to calculate BMI is changed apropriately
+       * <summary>
+       * @method Imperial_CheckedChanged
+       * @property {void}
+       */
         private void Imperial_CheckedChanged(object sender, EventArgs e)
         {
             this.HeightlLabel.Text = "inches";
