@@ -30,28 +30,28 @@
         {
             this.TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Clear_Button = new System.Windows.Forms.Button();
-            this.Seven = new System.Windows.Forms.Button();
-            this.Eight = new System.Windows.Forms.Button();
-            this.Nine = new System.Windows.Forms.Button();
-            this.Four = new System.Windows.Forms.Button();
-            this.Five = new System.Windows.Forms.Button();
-            this.Six = new System.Windows.Forms.Button();
-            this.One = new System.Windows.Forms.Button();
-            this.Two = new System.Windows.Forms.Button();
-            this.Three = new System.Windows.Forms.Button();
+            this.SevenButton = new System.Windows.Forms.Button();
+            this.EightButton = new System.Windows.Forms.Button();
+            this.NineButton = new System.Windows.Forms.Button();
+            this.FourButton = new System.Windows.Forms.Button();
+            this.FiveButton = new System.Windows.Forms.Button();
+            this.SixButton = new System.Windows.Forms.Button();
+            this.OneButton = new System.Windows.Forms.Button();
+            this.TwoButton = new System.Windows.Forms.Button();
+            this.ThreeButton = new System.Windows.Forms.Button();
             this.DecimalButton = new System.Windows.Forms.Button();
-            this.Zero = new System.Windows.Forms.Button();
+            this.ZeroButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.HeighttextBox = new System.Windows.Forms.TextBox();
             this.WeighttextBox = new System.Windows.Forms.TextBox();
             this.HeightLable = new System.Windows.Forms.Label();
             this.WeightLabel = new System.Windows.Forms.Label();
-            this.Metric = new System.Windows.Forms.RadioButton();
-            this.Imperial = new System.Windows.Forms.RadioButton();
+            this.MetricRadioButton = new System.Windows.Forms.RadioButton();
+            this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.Myheight = new System.Windows.Forms.GroupBox();
             this.ResetButton = new System.Windows.Forms.Button();
-            this.HeightlLabel = new System.Windows.Forms.Label();
+            this.HeightLabel2 = new System.Windows.Forms.Label();
             this.WeightLabel2 = new System.Windows.Forms.Label();
             this.TableLayoutPanel.SuspendLayout();
             this.Myheight.SuspendLayout();
@@ -64,19 +64,19 @@
             this.TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TableLayoutPanel.Controls.Add(this.Clear_Button, 0, 0);
-            this.TableLayoutPanel.Controls.Add(this.Seven, 0, 1);
-            this.TableLayoutPanel.Controls.Add(this.Eight, 1, 1);
-            this.TableLayoutPanel.Controls.Add(this.Nine, 2, 1);
-            this.TableLayoutPanel.Controls.Add(this.Four, 0, 2);
-            this.TableLayoutPanel.Controls.Add(this.Five, 1, 2);
-            this.TableLayoutPanel.Controls.Add(this.Six, 2, 2);
-            this.TableLayoutPanel.Controls.Add(this.One, 0, 3);
-            this.TableLayoutPanel.Controls.Add(this.Two, 1, 3);
-            this.TableLayoutPanel.Controls.Add(this.Three, 2, 3);
+            this.TableLayoutPanel.Controls.Add(this.SevenButton, 0, 1);
+            this.TableLayoutPanel.Controls.Add(this.EightButton, 1, 1);
+            this.TableLayoutPanel.Controls.Add(this.NineButton, 2, 1);
+            this.TableLayoutPanel.Controls.Add(this.FourButton, 0, 2);
+            this.TableLayoutPanel.Controls.Add(this.FiveButton, 1, 2);
+            this.TableLayoutPanel.Controls.Add(this.SixButton, 2, 2);
+            this.TableLayoutPanel.Controls.Add(this.OneButton, 0, 3);
+            this.TableLayoutPanel.Controls.Add(this.TwoButton, 1, 3);
+            this.TableLayoutPanel.Controls.Add(this.ThreeButton, 2, 3);
             this.TableLayoutPanel.Controls.Add(this.DecimalButton, 2, 4);
-            this.TableLayoutPanel.Controls.Add(this.Zero, 1, 4);
+            this.TableLayoutPanel.Controls.Add(this.ZeroButton, 1, 4);
             this.TableLayoutPanel.Controls.Add(this.BackButton, 1, 0);
-            this.TableLayoutPanel.Location = new System.Drawing.Point(21, 247);
+            this.TableLayoutPanel.Location = new System.Drawing.Point(24, 257);
             this.TableLayoutPanel.Name = "TableLayoutPanel";
             this.TableLayoutPanel.RowCount = 5;
             this.TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -99,95 +99,95 @@
             this.Clear_Button.UseVisualStyleBackColor = false;
             this.Clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
             // 
-            // Seven
+            // SevenButton
             // 
-            this.Seven.Location = new System.Drawing.Point(3, 39);
-            this.Seven.Name = "Seven";
-            this.Seven.Size = new System.Drawing.Size(73, 30);
-            this.Seven.TabIndex = 1;
-            this.Seven.Text = "7";
-            this.Seven.UseVisualStyleBackColor = true;
-            this.Seven.Click += new System.EventHandler(this.Calculator_Click);
+            this.SevenButton.Location = new System.Drawing.Point(3, 39);
+            this.SevenButton.Name = "SevenButton";
+            this.SevenButton.Size = new System.Drawing.Size(73, 30);
+            this.SevenButton.TabIndex = 1;
+            this.SevenButton.Text = "7";
+            this.SevenButton.UseVisualStyleBackColor = true;
+            this.SevenButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Eight
+            // EightButton
             // 
-            this.Eight.Location = new System.Drawing.Point(82, 39);
-            this.Eight.Name = "Eight";
-            this.Eight.Size = new System.Drawing.Size(73, 30);
-            this.Eight.TabIndex = 2;
-            this.Eight.Text = "8";
-            this.Eight.UseVisualStyleBackColor = true;
-            this.Eight.Click += new System.EventHandler(this.Calculator_Click);
+            this.EightButton.Location = new System.Drawing.Point(82, 39);
+            this.EightButton.Name = "EightButton";
+            this.EightButton.Size = new System.Drawing.Size(73, 30);
+            this.EightButton.TabIndex = 2;
+            this.EightButton.Text = "8";
+            this.EightButton.UseVisualStyleBackColor = true;
+            this.EightButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Nine
+            // NineButton
             // 
-            this.Nine.Location = new System.Drawing.Point(161, 39);
-            this.Nine.Name = "Nine";
-            this.Nine.Size = new System.Drawing.Size(74, 30);
-            this.Nine.TabIndex = 3;
-            this.Nine.Text = "9";
-            this.Nine.UseVisualStyleBackColor = true;
-            this.Nine.Click += new System.EventHandler(this.Calculator_Click);
+            this.NineButton.Location = new System.Drawing.Point(161, 39);
+            this.NineButton.Name = "NineButton";
+            this.NineButton.Size = new System.Drawing.Size(74, 30);
+            this.NineButton.TabIndex = 3;
+            this.NineButton.Text = "9";
+            this.NineButton.UseVisualStyleBackColor = true;
+            this.NineButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Four
+            // FourButton
             // 
-            this.Four.Location = new System.Drawing.Point(3, 75);
-            this.Four.Name = "Four";
-            this.Four.Size = new System.Drawing.Size(73, 30);
-            this.Four.TabIndex = 4;
-            this.Four.Text = "4";
-            this.Four.UseVisualStyleBackColor = true;
-            this.Four.Click += new System.EventHandler(this.Calculator_Click);
+            this.FourButton.Location = new System.Drawing.Point(3, 75);
+            this.FourButton.Name = "FourButton";
+            this.FourButton.Size = new System.Drawing.Size(73, 30);
+            this.FourButton.TabIndex = 4;
+            this.FourButton.Text = "4";
+            this.FourButton.UseVisualStyleBackColor = true;
+            this.FourButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Five
+            // FiveButton
             // 
-            this.Five.Location = new System.Drawing.Point(82, 75);
-            this.Five.Name = "Five";
-            this.Five.Size = new System.Drawing.Size(73, 30);
-            this.Five.TabIndex = 5;
-            this.Five.Text = "5";
-            this.Five.UseVisualStyleBackColor = true;
-            this.Five.Click += new System.EventHandler(this.Calculator_Click);
+            this.FiveButton.Location = new System.Drawing.Point(82, 75);
+            this.FiveButton.Name = "FiveButton";
+            this.FiveButton.Size = new System.Drawing.Size(73, 30);
+            this.FiveButton.TabIndex = 5;
+            this.FiveButton.Text = "5";
+            this.FiveButton.UseVisualStyleBackColor = true;
+            this.FiveButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Six
+            // SixButton
             // 
-            this.Six.Location = new System.Drawing.Point(161, 75);
-            this.Six.Name = "Six";
-            this.Six.Size = new System.Drawing.Size(74, 30);
-            this.Six.TabIndex = 6;
-            this.Six.Text = "6";
-            this.Six.UseVisualStyleBackColor = true;
-            this.Six.Click += new System.EventHandler(this.Calculator_Click);
+            this.SixButton.Location = new System.Drawing.Point(161, 75);
+            this.SixButton.Name = "SixButton";
+            this.SixButton.Size = new System.Drawing.Size(74, 30);
+            this.SixButton.TabIndex = 6;
+            this.SixButton.Text = "6";
+            this.SixButton.UseVisualStyleBackColor = true;
+            this.SixButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // One
+            // OneButton
             // 
-            this.One.Location = new System.Drawing.Point(3, 111);
-            this.One.Name = "One";
-            this.One.Size = new System.Drawing.Size(73, 30);
-            this.One.TabIndex = 7;
-            this.One.Text = "1";
-            this.One.UseVisualStyleBackColor = true;
-            this.One.Click += new System.EventHandler(this.Calculator_Click);
+            this.OneButton.Location = new System.Drawing.Point(3, 111);
+            this.OneButton.Name = "OneButton";
+            this.OneButton.Size = new System.Drawing.Size(73, 30);
+            this.OneButton.TabIndex = 7;
+            this.OneButton.Text = "1";
+            this.OneButton.UseVisualStyleBackColor = true;
+            this.OneButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Two
+            // TwoButton
             // 
-            this.Two.Location = new System.Drawing.Point(82, 111);
-            this.Two.Name = "Two";
-            this.Two.Size = new System.Drawing.Size(73, 30);
-            this.Two.TabIndex = 8;
-            this.Two.Text = "2";
-            this.Two.UseVisualStyleBackColor = true;
-            this.Two.Click += new System.EventHandler(this.Calculator_Click);
+            this.TwoButton.Location = new System.Drawing.Point(82, 111);
+            this.TwoButton.Name = "TwoButton";
+            this.TwoButton.Size = new System.Drawing.Size(73, 30);
+            this.TwoButton.TabIndex = 8;
+            this.TwoButton.Text = "2";
+            this.TwoButton.UseVisualStyleBackColor = true;
+            this.TwoButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
-            // Three
+            // ThreeButton
             // 
-            this.Three.Location = new System.Drawing.Point(161, 111);
-            this.Three.Name = "Three";
-            this.Three.Size = new System.Drawing.Size(74, 30);
-            this.Three.TabIndex = 9;
-            this.Three.Text = "3";
-            this.Three.UseVisualStyleBackColor = true;
-            this.Three.Click += new System.EventHandler(this.Calculator_Click);
+            this.ThreeButton.Location = new System.Drawing.Point(161, 111);
+            this.ThreeButton.Name = "ThreeButton";
+            this.ThreeButton.Size = new System.Drawing.Size(74, 30);
+            this.ThreeButton.TabIndex = 9;
+            this.ThreeButton.Text = "3";
+            this.ThreeButton.UseVisualStyleBackColor = true;
+            this.ThreeButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
             // DecimalButton
             // 
@@ -199,15 +199,15 @@
             this.DecimalButton.UseVisualStyleBackColor = true;
             this.DecimalButton.Click += new System.EventHandler(this.DecimalButton_Click);
             // 
-            // Zero
+            // ZeroButton
             // 
-            this.Zero.Location = new System.Drawing.Point(82, 147);
-            this.Zero.Name = "Zero";
-            this.Zero.Size = new System.Drawing.Size(73, 33);
-            this.Zero.TabIndex = 10;
-            this.Zero.Text = "0";
-            this.Zero.UseVisualStyleBackColor = true;
-            this.Zero.Click += new System.EventHandler(this.Calculator_Click);
+            this.ZeroButton.Location = new System.Drawing.Point(82, 147);
+            this.ZeroButton.Name = "ZeroButton";
+            this.ZeroButton.Size = new System.Drawing.Size(73, 33);
+            this.ZeroButton.TabIndex = 10;
+            this.ZeroButton.Text = "0";
+            this.ZeroButton.UseVisualStyleBackColor = true;
+            this.ZeroButton.Click += new System.EventHandler(this.Calculator_Click);
             // 
             // BackButton
             // 
@@ -221,16 +221,15 @@
             // 
             // HeighttextBox
             // 
-            this.HeighttextBox.Location = new System.Drawing.Point(24, 96);
+            this.HeighttextBox.Location = new System.Drawing.Point(18, 99);
             this.HeighttextBox.Name = "HeighttextBox";
             this.HeighttextBox.Size = new System.Drawing.Size(120, 34);
             this.HeighttextBox.TabIndex = 1;
             this.HeighttextBox.Click += new System.EventHandler(this.HeighttextBox_Click);
-           
             // 
             // WeighttextBox
             // 
-            this.WeighttextBox.Location = new System.Drawing.Point(24, 163);
+            this.WeighttextBox.Location = new System.Drawing.Point(18, 163);
             this.WeighttextBox.Name = "WeighttextBox";
             this.WeighttextBox.Size = new System.Drawing.Size(125, 34);
             this.WeighttextBox.TabIndex = 2;
@@ -254,33 +253,33 @@
             this.WeightLabel.TabIndex = 4;
             this.WeightLabel.Text = "My Weight";
             // 
-            // Metric
+            // MetricRadioButton
             // 
-            this.Metric.AutoSize = true;
-            this.Metric.Location = new System.Drawing.Point(6, 17);
-            this.Metric.Name = "Metric";
-            this.Metric.Size = new System.Drawing.Size(102, 31);
-            this.Metric.TabIndex = 6;
-            this.Metric.TabStop = true;
-            this.Metric.Text = "Metric";
-            this.Metric.UseVisualStyleBackColor = true;
-            this.Metric.CheckedChanged += new System.EventHandler(this.Metric_CheckedChanged);
+            this.MetricRadioButton.AutoSize = true;
+            this.MetricRadioButton.Location = new System.Drawing.Point(6, 17);
+            this.MetricRadioButton.Name = "MetricRadioButton";
+            this.MetricRadioButton.Size = new System.Drawing.Size(102, 31);
+            this.MetricRadioButton.TabIndex = 6;
+            this.MetricRadioButton.TabStop = true;
+            this.MetricRadioButton.Text = "Metric";
+            this.MetricRadioButton.UseVisualStyleBackColor = true;
+            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.Metric_CheckedChanged);
             // 
-            // Imperial
+            // ImperialRadioButton
             // 
-            this.Imperial.AutoSize = true;
-            this.Imperial.Location = new System.Drawing.Point(114, 17);
-            this.Imperial.Name = "Imperial";
-            this.Imperial.Size = new System.Drawing.Size(118, 31);
-            this.Imperial.TabIndex = 7;
-            this.Imperial.TabStop = true;
-            this.Imperial.Text = "Imperial";
-            this.Imperial.UseVisualStyleBackColor = true;
-            this.Imperial.CheckedChanged += new System.EventHandler(this.Imperial_CheckedChanged);
+            this.ImperialRadioButton.AutoSize = true;
+            this.ImperialRadioButton.Location = new System.Drawing.Point(114, 17);
+            this.ImperialRadioButton.Name = "ImperialRadioButton";
+            this.ImperialRadioButton.Size = new System.Drawing.Size(118, 31);
+            this.ImperialRadioButton.TabIndex = 7;
+            this.ImperialRadioButton.TabStop = true;
+            this.ImperialRadioButton.Text = "Imperial";
+            this.ImperialRadioButton.UseVisualStyleBackColor = true;
+            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.Imperial_CheckedChanged);
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(0, 198);
+            this.SubmitButton.Location = new System.Drawing.Point(0, 203);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(189, 38);
             this.SubmitButton.TabIndex = 8;
@@ -291,17 +290,17 @@
             // Myheight
             // 
             this.Myheight.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Myheight.Controls.Add(this.Imperial);
-            this.Myheight.Controls.Add(this.Metric);
+            this.Myheight.Controls.Add(this.ImperialRadioButton);
+            this.Myheight.Controls.Add(this.MetricRadioButton);
             this.Myheight.Location = new System.Drawing.Point(12, 0);
             this.Myheight.Name = "Myheight";
-            this.Myheight.Size = new System.Drawing.Size(247, 63);
+            this.Myheight.Size = new System.Drawing.Size(247, 52);
             this.Myheight.TabIndex = 11;
             this.Myheight.TabStop = false;
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(195, 198);
+            this.ResetButton.Location = new System.Drawing.Point(195, 203);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(97, 38);
             this.ResetButton.TabIndex = 13;
@@ -309,15 +308,15 @@
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
-            // HeightlLabel
+            // HeightLabel2
             // 
-            this.HeightlLabel.AutoSize = true;
-            this.HeightlLabel.Location = new System.Drawing.Point(155, 99);
-            this.HeightlLabel.Name = "HeightlLabel";
-            this.HeightlLabel.Size = new System.Drawing.Size(78, 27);
-            this.HeightlLabel.TabIndex = 14;
-            this.HeightlLabel.Text = "label1";
-            this.HeightlLabel.Visible = false;
+            this.HeightLabel2.AutoSize = true;
+            this.HeightLabel2.Location = new System.Drawing.Point(155, 102);
+            this.HeightLabel2.Name = "HeightLabel2";
+            this.HeightLabel2.Size = new System.Drawing.Size(78, 27);
+            this.HeightLabel2.TabIndex = 14;
+            this.HeightLabel2.Text = "label1";
+            this.HeightLabel2.Visible = false;
             // 
             // WeightLabel2
             // 
@@ -335,7 +334,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 442);
             this.Controls.Add(this.WeightLabel2);
-            this.Controls.Add(this.HeightlLabel);
+            this.Controls.Add(this.HeightLabel2);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.Myheight);
             this.Controls.Add(this.WeightLabel);
@@ -368,24 +367,24 @@
         private System.Windows.Forms.Label HeightLable;
         private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.Button Clear_Button;
-        private System.Windows.Forms.Button Seven;
-        private System.Windows.Forms.Button Eight;
-        private System.Windows.Forms.Button Nine;
-        private System.Windows.Forms.Button Four;
-        private System.Windows.Forms.Button Five;
-        private System.Windows.Forms.Button Six;
-        private System.Windows.Forms.Button One;
-        private System.Windows.Forms.Button Two;
-        private System.Windows.Forms.Button Three;
+        private System.Windows.Forms.Button SevenButton;
+        private System.Windows.Forms.Button EightButton;
+        private System.Windows.Forms.Button NineButton;
+        private System.Windows.Forms.Button FourButton;
+        private System.Windows.Forms.Button FiveButton;
+        private System.Windows.Forms.Button SixButton;
+        private System.Windows.Forms.Button OneButton;
+        private System.Windows.Forms.Button TwoButton;
+        private System.Windows.Forms.Button ThreeButton;
         private System.Windows.Forms.Button DecimalButton;
-        private System.Windows.Forms.Button Zero;
-        private System.Windows.Forms.RadioButton Metric;
-        private System.Windows.Forms.RadioButton Imperial;
+        private System.Windows.Forms.Button ZeroButton;
+        private System.Windows.Forms.RadioButton MetricRadioButton;
+        private System.Windows.Forms.RadioButton ImperialRadioButton;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.GroupBox Myheight;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Label HeightlLabel;
+        private System.Windows.Forms.Label HeightLabel2;
         private System.Windows.Forms.Label WeightLabel2;
     }
 }

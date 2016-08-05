@@ -50,6 +50,7 @@
     <Compile Include="BMICalculator.Designer.cs">
       <DependentUpon>BMICalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProgressBarClass.cs" />
     <Compile Include="ResultOfBMICalculator.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -25,6 +25,12 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             SplashHomeScreentimer.Enabled = false;
             FirstForm.Show();
             this.Hide();
+            FirstForm.FormClosed+=FirstForm_FormClosed;
+            
+        }
+        private void FirstForm_FormClosed(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

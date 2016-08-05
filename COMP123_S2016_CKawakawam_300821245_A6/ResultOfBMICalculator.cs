@@ -20,7 +20,14 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         }
 
 
-        public ProgressBar Bar = new ProgressBar();
+        public ProgressBar ResultProcessingBar = new ProgressBar();
+
+        private void ResultOfBMICalculator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //this.Close();
+        }
+
+       
                
 
         

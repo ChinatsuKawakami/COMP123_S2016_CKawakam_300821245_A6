@@ -12,9 +12,9 @@ using COMP123_S2016_CKawakawam_300821245_A6.Properties;
 /*
  * Author:Chinatsu Kawakami
  * CreateDate:July23th2016
- * Modified Date:August 4th 2016
+ * Modified Date:August 5th 2016
  * Descripntion: This program is to show users IBM
- * Version: 0.0.13- Zero is set in TextBox before User inputs Height and Weight
+ * Version: 0.0.14- Added ProgressBarClass to change the color of ProgressBar depend on BMI Result and Fixed Error about SplashHomeScreen caused.
  */
 namespace COMP123_S2016_CKawakawam_300821245_A6
 {
@@ -69,24 +69,25 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             ResultOfBMICalculator SecondForm = new ResultOfBMICalculator();
 
             //Create ProgressBar instance and assign to ProgressBar Which is in ResultOfBMICalculator Form
-            ProgressBar Progress = SecondForm.Bar;
+            ProgressBar Progress = SecondForm.ResultProcessingBar;
 
             //Height and Weight label is false till user choose Metric or Imperial
-            HeightLable.Visible = false;
+            HeightLabel2.Visible = false;
             WeightLabel2.Visible = false;
+
             // set try and catch to check if DivideByZeroException happends or not
             try
             {
                 if (ActiveError == false)// if DivideByZeroException does not happen, this Event continues
                 {
-                    if (Imperial.Checked)
+                    if (ImperialRadioButton.Checked)
                     {
                         
                         BMIResult = (Convert.ToDouble(WeighttextBox.Text) * 703) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
 
 
                     }
-                    else if (Metric.Checked)
+                    else if (MetricRadioButton.Checked)
                     {
                        
                         BMIResult = Convert.ToDouble(WeighttextBox.Text) / (Convert.ToDouble(HeighttextBox.Text) * Convert.ToDouble(HeighttextBox.Text));
@@ -103,27 +104,27 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
 
             if (BMIResult < 18.5)
             {
-                SecondForm.BMIlabel.Text = "Under Weight";
+                SecondForm.BMILevelLabel.Text = "Under Weight";
                 SecondForm.ForeColor = System.Drawing.Color.Aqua;
                 
 
             }
             else if (BMIResult >= 18.5 && BMIResult <= 24.9)
             {
-                SecondForm.BMIlabel.Text = "Normal";
+                SecondForm.BMILevelLabel.Text = "Normal";
                 SecondForm.ForeColor = System.Drawing.Color.Blue;
                
             }
             else if (BMIResult >= 25.0 && BMIResult <= 29.9)
             {
-                SecondForm.BMIlabel.Text = "Over Weight";
+                SecondForm.BMILevelLabel.Text = "Over Weight";
                 SecondForm.ForeColor = System.Drawing.Color.Yellow;
               
             }
             else if (BMIResult >= 30)
             {
 
-                SecondForm.BMIlabel.Text = "Obese";
+                SecondForm.BMILevelLabel.Text = "Obese";
                 SecondForm.ForeColor = System.Drawing.Color.Red;
                 
             }
@@ -131,30 +132,38 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
             int ResultForBar = (int)Program.FirstForm.BMIResult;
             Progress.Maximum = 100;
             Progress.Minimum = 0;
-            switch (SecondForm.BMIlabel.Text)
+            switch (SecondForm.BMILevelLabel.Text)
             {
                 case "Under Weight":
                     Progress.Value = 25;
                     Progress.BackColor = Color.Aqua;
-                    break;
+                    Progress.ForeColor = Color.Aqua;
+                    ProgressBarClass.SetState(Progress,1);
+                      break;
                 case "Normal":
                     Progress.Value = 50;
                     Progress.BackColor = Color.Blue;
+                    Progress.ForeColor = Color.Blue;
+                    ProgressBarClass.SetState(Progress, 1);
                     break;
                 case "Over Weight":
                     Progress.Value = 75;
                     Progress.BackColor = Color.Yellow;
+                    Progress.ForeColor = Color.Yellow;
+                    ProgressBarClass.SetState(Progress, 3);
                     break;
                 case "Obese":
                     Progress.Value = 100;
                     Progress.BackColor = Color.Red;
+                    Progress.ForeColor = Color.Red;
+                   ProgressBarClass.SetState(Progress, 2);
                     break;
 
             }
             //ResultOfBMICalculator's label shows BMI Result
-            SecondForm.ResultLabel.Text = Convert.ToString(BMIResult);  
+            SecondForm.BMIResultLabel.Text = Convert.ToString(BMIResult);  
             //ResultOfBMICalculator shows
-            SecondForm.Show();    
+            SecondForm.Show();
 
         }
 
@@ -336,9 +345,9 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
         private void Metric_CheckedChanged(object sender, EventArgs e)
         {
 
-            this.HeightlLabel.Text = "M";
+            this.HeightLabel2.Text = "M";
             this.WeightLabel2.Text = "Kg";
-            HeightlLabel.Visible = true;
+            HeightLabel2.Visible = true;
             WeightLabel2.Visible=true;
         }
         /*
@@ -350,9 +359,9 @@ namespace COMP123_S2016_CKawakawam_300821245_A6
        */
         private void Imperial_CheckedChanged(object sender, EventArgs e)
         {
-            this.HeightlLabel.Text = "inches";
+            this.HeightLabel2.Text = "inches";
             this.WeightLabel2.Text = "pounds";
-            HeightlLabel.Visible = true;
+            HeightLabel2.Visible = true;
             WeightLabel2.Visible=true;
         }
 
